@@ -12,6 +12,14 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Mahindra UAT-DEV-TEST Subscription(17403e43-813f-478e-afbb-bc664ff3b4dd)'
+    appType: 'webAppLinux'
+    WebAppName: 'itinodejs'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|10.14'
     versionSpec: '10.14'
   displayName: 'Install Node.js'
 
